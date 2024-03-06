@@ -1,0 +1,12 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Mar 6, 2024, 11:35:42 AM
+    Author     : colin
+*/
+
+.filter-white{
+    filter: invert(99%) sepia(4%) saturate(19%) hue-rotate(195deg) brightness(115%) contrast(87%);
+}
