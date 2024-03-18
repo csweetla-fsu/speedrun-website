@@ -22,9 +22,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </form>
 
             <div class="text-end">
-                <button type="button" class="btn btn-primary">Register</button>
+                <a href="register.php" class="btn btn-primary"> 
+                    Register
+                </a>
 
-                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <a href="login.php" class="btn btn-outline-light me-2"> 
+                    Login
+                </a>
             </div>
         </div>
     </div>
