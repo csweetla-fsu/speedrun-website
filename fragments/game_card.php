@@ -6,8 +6,8 @@
             </div>
             <div class="col-8 ">
                 <div class="card-body">
-                    <h1 class="card-title">Super Mario 64</h1>
-                    <p class="card-text truncate-sm">
+                    <h3 class="card-title fw-bold">Super Mario 64</h3>
+                    <p class="card-text truncate-sm fs-5">
                         Super Mario 64 is a classic 3D platformer where players control Mario in his quest to rescue Princess Peach from Bowser's clutches. Navigate through diverse worlds, collect Power Stars, and explore Princess Peach's castle in this iconic game.
                     </p>
                 </div>
