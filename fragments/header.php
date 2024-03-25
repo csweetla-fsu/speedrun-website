@@ -12,7 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-white">Games</a></li>
+                <li><a href="browse_games.php" class="nav-link px-2 text-white">Games</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Recent</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             </ul>
