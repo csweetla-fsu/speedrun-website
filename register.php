@@ -24,7 +24,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 <!-- Sign up form-->
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary shadow">
                         <h1 class="display-6 lh-1 text-body-emphasis mb-3">Register</h1>
 
                         <div class="form-floating mb-3">
