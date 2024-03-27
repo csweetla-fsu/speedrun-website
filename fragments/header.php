@@ -18,7 +18,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                <div class="input-group px-4">
+                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search.." aria-label="Search">
+                      <button class="btn btn-primary btn-outline-light" type="button" id="button-addon1">Search</button>
+                </div>
             </form>
 
             <div class="text-end">
