@@ -22,7 +22,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Register</button>
                     </a>
                     
-                    <a href="register.php"> 
+                    <a href="browse_games.php"> 
                         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Browse</button>
                     </a>
                 </div>
