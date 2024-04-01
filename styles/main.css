@@ -1,0 +1,22 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : Mar 6, 2024, 11:35:42 AM
+    Author     : colin
+*/
+
+/* filter an svg to white */
+.filter-white{
+    filter: invert(99%) sepia(4%) saturate(19%) hue-rotate(195deg) brightness(115%) contrast(87%);
+}
+
+@media screen and (max-width: 768px) {
+    /* truncates text when smaller then the medium breakpoint in bootstrap 5 */
+    .truncate-sm {
+       overflow: hidden;
+       white-space: nowrap;
+       text-overflow: ellipsis;
+    }
+}
