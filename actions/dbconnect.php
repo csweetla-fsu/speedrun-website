@@ -10,6 +10,6 @@ $dbconn =  mysqli_connect($servername, $username, $password, "speedrun_website")
 if (!$dbconn) {
   die("Database Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM `game`;";
+
 //echo "Connected successfully";
 
