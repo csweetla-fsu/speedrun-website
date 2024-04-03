@@ -17,7 +17,7 @@
                     New Game
                 </div>
 
-                <form class="p-4 p-md-5">
+                <form class="p-4 p-md-5" action="actions/admin_submit_new_game.php" method="post" autocomplete="off" enctype="multipart/form-data">
                     <!-- NAME INPUT -->
                     <div class="mb-3">
                         <label for="game_name" class="form-label">Game Name</label>
@@ -30,17 +30,18 @@
                         <textarea class="form-control" id="game_desc" name="game_desc" rows="4"></textarea>
                     </div>
 
+
                     <!-- COVER INPUT (file) -->
                     <div class="mb-4">
                         <label for="game_cover" class="form-label">Game Cover</label>
-                        <input class="form-control" type="file" id="game_cover">
+                        <input class="form-control" type="file" name="game_cover" id="game_cover" value="">
                     </div>
 
                     <!-- SUBMIT / RESET BUTTONS -->
                     <div class="container pt-3">
                         <div class="row gx-1">
                             <div class="col-6">
-                                <button class="btn btn-lg btn-primary w-100" type="submit">Submit</button>
+                                <button class="btn btn-lg btn-primary w-100" type="submit" name="db_new_game">Submit</button>
                             </div>
                             <div class="col-6">
                                 <button class="btn btn-lg btn-secondary w-100" type="reset"> Reset </button>
