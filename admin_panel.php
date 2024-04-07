@@ -21,13 +21,13 @@
                     <!-- NAME INPUT -->
                     <div class="mb-3">
                         <label for="game_name" class="form-label">Game Name</label>
-                        <input type="text" class="form-control" id="game_name" name="game_name" placeholder="">
+                        <input type="text" class="form-control" id="game_name" name="game_name" placeholder="" required>
                     </div>
 
                     <!-- DESC INPUT -->
                     <div class="mb-3">
                         <label for="game_desc" class="form-label">Game Description</label>
-                        <textarea class="form-control" id="game_desc" name="game_desc" rows="4"></textarea>
+                        <textarea class="form-control" id="game_desc" name="game_desc" rows="4" required></textarea>
                     </div>
 
 
@@ -58,36 +58,43 @@
                     New Speedrun Category
                 </div>
 
-                <form class="p-4 p-md-5">
+                <form class="p-4 p-md-5" action="actions/admin_submit_new_category.php" method="post" autocomplete="off">
                     <!-- GAME SELECT (Game the category applies to)-->
                     <div class="mb-3">
                         <label for="cat_game_name" class="form-label">Game</label>
                         
-                        <select class="form-select" id="cat_game_name" name="cat_game_name">
-                          <option selected>Select Game</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <select class="form-select" id="cat_game_name" name="cat_game_name" required>
+                          <option selected value="">-- SELECT GAME --</option>
+                          <!-- add option for every game in the db -->
+                          <?php 
+                          
+                            $result = mysqli_query($dbconn, "SELECT `game_id`, `game_name` FROM `game`");
+                          
+                            while ($row = mysqli_fetch_assoc($result)) { 
+                                echo "<option value=\"" . $row["game_id"] . "\">" . $row["game_name"] . "</option>\n"; 
+                            } 
+                            ?>
+                          
                         </select>
                     </div>
                     
                     <!-- NAME INPUT -->
                     <div class="mb-3">
                         <label for="cat_name" class="form-label">Category Name</label>
-                        <input type="text" class="form-control" id="cat_name" name="cat_name" placeholder="">
+                        <input type="text" class="form-control" id="cat_name" name="cat_name" placeholder="" required>
                     </div>
 
                     <!-- DESC INPUT -->
                     <div class="mb-4">
                         <label for="exampleFormControlTextarea1" class="form-label">Category Description</label>
-                        <textarea class="form-control" id="game_desc" rows="4"></textarea>
+                        <textarea class="form-control" id="cat_desc" name="cat_desc" rows="4" required></textarea>
                     </div>
 
                     <!-- SUBMIT / RESET BUTTONS -->
                     <div class="container pt-3">
                         <div class="row gx-1">
                             <div class="col-6">
-                                <button class="btn btn-lg btn-primary w-100" type="submit">Submit</button>
+                                <button class="btn btn-lg btn-primary w-100" type="submit" name="db_new_cat">Submit</button>
                             </div>
                             <div class="col-6">
                                 <button class="btn btn-lg btn-secondary w-100" type="reset"> Reset </button>

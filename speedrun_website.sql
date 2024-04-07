@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2024 at 01:38 AM
+-- Generation Time: Apr 07, 2024 at 06:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -46,14 +46,6 @@ CREATE TABLE `game` (
   `game_desc` varchar(320) NOT NULL,
   `game_cover` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `game`
---
-
-INSERT INTO `game` (`game_id`, `game_name`, `game_desc`, `game_cover`) VALUES
-(2, 'Half Life 2', 'Cool Game !', NULL),
-(3, 'Minecraft', 'another cool game!', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,13 +136,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `run_review`
