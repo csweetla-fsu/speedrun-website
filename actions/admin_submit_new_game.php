@@ -15,9 +15,14 @@ if (isset($_POST["db_new_game"])) {
     $game_name = $_POST["game_name"];
     $game_desc = $_POST["game_desc"];
     echo "Adding game with name '" . htmlspecialchars($game_name) . "' and desc '" . htmlspecialchars($game_desc) . "'<br>";
-
-    # prepare statement -> bind parameters -> execute
-    # *********** TODO: game cover upload ************************
+//    File Upload. Doesn't currently work...
+//    if (isset($_FILES["game_cover"]["name"]) && $_FILES["game_cover"]["size"] > 0 && $_FILES["game_cover"]["error"] == 0) {
+//        $save_path = dirname(__FILE__) . "/../img/game_covers/" . $_FILES["game_cover"]["name"];
+//        echo "Uploading file to.. dir: " . $save_path . "<br/>";
+//        move_uploaded_file($_FILES["game_cover"]["tmp_name"], $save_path);
+//    }
+//    
+    // prepare statement -> bind parameters -> execute
     $insert_query = mysqli_prepare($dbconn, "INSERT INTO `game`(`game_name`, `game_desc`) VALUES (?,?)");
     mysqli_stmt_bind_param($insert_query, "ss", $game_name, $game_desc);
     mysqli_stmt_execute($insert_query);

@@ -34,7 +34,7 @@
                     <!-- COVER INPUT (file) -->
                     <div class="mb-4">
                         <label for="game_cover" class="form-label">Game Cover</label>
-                        <input class="form-control" type="file" name="game_cover" id="game_cover" value="">
+                        <input class="form-control" type="file" accept="image/*" name="game_cover" id="game_cover" value="">
                     </div>
 
                     <!-- SUBMIT / RESET BUTTONS -->

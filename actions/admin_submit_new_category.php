@@ -23,7 +23,6 @@ if (isset($_POST["db_new_cat"])) {
 
     
     # prepare statement -> bind parameters -> execute
-    # *********** TODO: game cover upload ************************
     $insert_query = mysqli_prepare($dbconn, "INSERT INTO `category`(`category_id`, `category_name`, `category_desc`, `game_id`) VALUES (0,?,?,?)");
     mysqli_stmt_bind_param($insert_query, "ssi", $cat_name, $cat_desc, $cat_game_id);
     mysqli_stmt_execute($insert_query);
