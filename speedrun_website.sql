@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 04, 2024 at 05:08 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Apr 07, 2024 at 06:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `game` (
   `game_id` int(11) NOT NULL,
   `game_name` varchar(100) NOT NULL,
   `game_desc` varchar(320) NOT NULL,
-  `game_cover` mediumblob NOT NULL
+  `game_cover` mediumblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -136,13 +136,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `game_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `run_review`
@@ -170,26 +170,21 @@ ALTER TABLE `user`
 -- Constraints for table `category`
 --
 ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `run_upload` (`category_id`);
+  ADD CONSTRAINT `category_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`game_id`);
 
 --
--- Constraints for table `game`
+-- Constraints for table `run_review`
 --
-ALTER TABLE `game`
-  ADD CONSTRAINT `game_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `category` (`game_id`);
+ALTER TABLE `run_review`
+  ADD CONSTRAINT `run_review_ibfk_1` FOREIGN KEY (`run_id`) REFERENCES `run_upload` (`run_id`),
+  ADD CONSTRAINT `run_review_ibfk_2` FOREIGN KEY (`reviewer_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `run_upload`
 --
 ALTER TABLE `run_upload`
-  ADD CONSTRAINT `run_upload_ibfk_1` FOREIGN KEY (`run_id`) REFERENCES `run_review` (`run_id`),
+  ADD CONSTRAINT `run_upload_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
   ADD CONSTRAINT `run_upload_ibfk_2` FOREIGN KEY (`uploader_id`) REFERENCES `user` (`user_id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `run_review` (`reviewer_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
