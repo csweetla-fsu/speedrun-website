@@ -24,21 +24,8 @@
                         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Browse</button>
                     </a>
                 </div>
-                <?php
-                    if (!empty($_SESSION["registration"]["errors"])) {
-                        echo '<div class="w3-panel w3-pale-red w3-leftbar w3-border-red p-2 fs-5 rounded">';
-                        echo '<ul>';
-                        foreach ($_SESSION["registration"]["errors"] as $reg_err) {
-                            echo '<li>' . $reg_err . '</li>';
-                        }
-                        echo '</ul>';
-                        echo '</div>';
-                    }
-                ?>
             </div>
-            
         </div>
-
         <?php require('fragments/footer.php') ?>
     </body>
 </html>

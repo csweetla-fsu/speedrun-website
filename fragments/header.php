@@ -29,9 +29,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     Register
                 </a>
 
+                
+                <?php if (empty($_SESSION['user_id'])) : ?>
+                
                 <a href="login.php" class="btn btn-outline-light me-2"> 
                     Login
                 </a>
+                
+                <?php else : ?>
+               
+                <a href="<?php echo "actions/logout_action.php?" . http_build_query(["back" => $_SERVER['REQUEST_URI']]) ?>" class="btn btn-outline-light me-2" >
+                    Logout
+                </a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
