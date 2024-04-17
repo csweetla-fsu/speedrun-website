@@ -3,6 +3,7 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
+<?php require('fragments/session_control.php') ?>
 <html>
     <head>
         <?php require('fragments/head_content.php') ?>
@@ -24,7 +25,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 <!-- Sign up form-->
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary shadow">
+                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary shadow" action="actions/register_action.php" method="post">
                         <h1 class="display-6 lh-1 text-body-emphasis mb-3">Register</h1>
 
                         <div class="form-floating mb-3">
@@ -48,11 +49,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <hr class="my-4">
                         <small class="text-body-secondary">Already have an account? <a href="login.php"> login instead </a></small>
                     </form>
+                    <!-- Sending errors from registration -->
+                    <?php
+                    if (!empty($_SESSION["registration"]["errors"])) {
+                        echo '<div class="alert alert-danger mt-3 pt-3 pb-2">';
+                        echo '<ul>';
+                        foreach ($_SESSION["registration"]["errors"] as $reg_err) {
+                            echo '<li>' . $reg_err . '</li>';
+                        }
+                        echo '</ul>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
-
             </div>
         </div>
-
         <?php require('fragments/footer.php') ?>
     </body>
 </html>

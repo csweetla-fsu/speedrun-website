@@ -1,4 +1,5 @@
 <?php require('actions/dbconnect.php') ?>
+<?php require('fragments/session_control.php') ?>
 <!DOCTYPE html>
 <html>
     <head>
