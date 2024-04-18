@@ -2,9 +2,12 @@
 # why does it use path relative to file instead of project root wtf ????
 require("dbconnect.php");
 
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 # set when user pressed the submit button on the new game form
-if (isset($_POST["db_new_game"])) {
+if (isset($_POST["db_new_game"]) && $_SESSION['user_type'] == admin) {
     echo "Attempting to add a new game to the database... <br>";
     
 # for safety: check if game_name or game_desc was set

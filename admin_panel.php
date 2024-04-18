@@ -7,7 +7,9 @@
     </head>
     <body>
         <?php require('fragments/header.php') ?>
-
+        
+        
+        <?php if ($_SESSION['user_type'] == 'admin') : ?>
         <h1 class="display-6 lh-1 text-body-emphasis m-5 text-center">Admin Panel</h1>
 
         <!-- Container-->
@@ -107,6 +109,9 @@
             </div>
             
         </div>
+        <?php else : ?>
+            <h1 class="display-6 lh-1 text-body-emphasis m-5 text-center">Not Authorized</h1>
+        <?php endif; ?>
         <?php require('fragments/footer.php') ?>
     </body>
 </html>
