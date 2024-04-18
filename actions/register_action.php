@@ -74,7 +74,18 @@ $password = password_hash($password, PASSWORD_DEFAULT);
 $stmt = $dbconn->prepare("INSERT INTO user (user_id, username, password, user_type) VALUES (0, ?, ?, 'basic')");
 $stmt->bind_param("ss", $username, $password);
 $stmt->execute();
+$user_id = mysqli_insert_id($dbconn);
 $stmt->close();
 $dbconn->close();
+
+// we should login also if the registration was successful
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+$_SESSION["user_id"] = $user_id;
+$_SESSION["username"] = $username;
+$_SESSION["user_type"] = 'basic';
+
 header('Location: /index.php');
 exit();

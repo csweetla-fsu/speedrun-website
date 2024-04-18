@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
 <header class="p-3 text-bg-dark">
-    <div class="container">
+    <div class="container col-xl-10 col-xxl-8">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <!-- ******* SOURCE: https://www.svgrepo.com/svg/509121/game-controller **********-->        
@@ -25,12 +25,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </form>
 
             <div class="text-end">
-                <a href="register.php" class="btn btn-primary"> 
-                    Register
-                </a>
+
 
                 
                 <?php if (empty($_SESSION['user_id'])) : ?>
+                
+                <a href="register.php" class="btn btn-primary"> 
+                    Register
+                </a>
                 
                 <a href="login.php" class="btn btn-outline-light me-2"> 
                     Login
@@ -38,8 +40,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
                 <?php else : ?>
                
-                <a href="<?php echo "actions/logout_action.php?" . http_build_query(["back" => $_SERVER['REQUEST_URI']]) ?>" class="btn btn-outline-light me-2" >
-                    Logout
+                <a href="<?php echo "actions/logout_action.php?" . http_build_query(["back" => $_SERVER['REQUEST_URI']]) ?>" class="btn btn-secondary me-2" >
+                    Logout (Logged in as <b><?php echo htmlspecialchars($_SESSION['username']) ?> </b> )
                 </a>
                 <?php endif; ?>
             </div>

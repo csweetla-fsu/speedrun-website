@@ -15,7 +15,6 @@
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4"> View Speedruns, upload yours, and have them reviewed here!</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-
                     <a href="register.php"> 
                         <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Register</button>
                     </a>
@@ -26,6 +25,7 @@
                 </div>
             </div>
         </div>
+        <?php print_r($_SESSION) ?>
         <?php require('fragments/footer.php') ?>
     </body>
 </html>

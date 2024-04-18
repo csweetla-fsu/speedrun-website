@@ -29,7 +29,7 @@ if($stmt->execute()) {
         }
     }
     else {
-        $_SESSION["login_errors"][] = "A user with username " . $user . " does not exist.";
+        $_SESSION["login_errors"][] = "A user with username '" . $user . "' does not exist.";
     }
 }
 
@@ -39,7 +39,7 @@ $dbconn->close();
 if (!empty($user_row) && empty($_SESSION["login_errors"]))
 {
     $_SESSION["user_id"] = $user_row["user_id"];
-    $_SESSION["user_name"] = $user;
+    $_SESSION["username"] = $user;
     $_SESSION["user_type"] = $user_row["user_type"];
     echo "Logged in user " . $user . "<br>";
     header("location: /index.php");
