@@ -25,7 +25,6 @@
                 </div>
             </div>
         </div>
-        <?php print_r($_SESSION) ?>
         <?php require('fragments/footer.php') ?>
     </body>
 </html>
