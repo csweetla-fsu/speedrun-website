@@ -7,7 +7,7 @@ if (!isset($_SESSION)) {
 }
 
 # set when user pressed the submit button on the new game form
-if (isset($_POST["db_new_game"]) && $_SESSION['user_type'] == admin) {
+if (isset($_POST["db_new_game"]) && $_SESSION['user_type'] == 'admin') {
     echo "Attempting to add a new game to the database... <br>";
     
 # for safety: check if game_name or game_desc was set
