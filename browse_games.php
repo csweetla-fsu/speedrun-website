@@ -40,6 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         } else {
                             $game_cover = "question_mark.png";
                         }
+                        
                         include "fragments/game_card.php";
                     }
                     ?>

@@ -19,15 +19,16 @@ if (isset($_POST["db_new_game"]) && $_SESSION['user_type'] == 'admin') {
     $game_desc = $_POST["game_desc"];
     echo "Adding game with name '" . htmlspecialchars($game_name) . "' and desc '" . htmlspecialchars($game_desc) . "'<br>";
 //    File Upload. Doesn't currently work...
-//    if (isset($_FILES["game_cover"]["name"]) && $_FILES["game_cover"]["size"] > 0 && $_FILES["game_cover"]["error"] == 0) {
-//        $save_path = dirname(__FILE__) . "/../img/game_covers/" . $_FILES["game_cover"]["name"];
-//        echo "Uploading file to.. dir: " . $save_path . "<br/>";
-//        move_uploaded_file($_FILES["game_cover"]["tmp_name"], $save_path);
-//    }
+    if (isset($_FILES["game_cover"]["name"]) && $_FILES["game_cover"]["size"] > 0 && $_FILES["game_cover"]["error"] == 0) {
+        $file_name = $_FILES["game_cover"]["name"];
+        $save_path = dirname(__FILE__) . "/../img/game_covers/" . $file_name;
+        echo "Uploading file to.. : " . $save_path . "<br/>";
+        move_uploaded_file($_FILES["game_cover"]["tmp_name"], $save_path);
+    }
 //    
     // prepare statement -> bind parameters -> execute
-    $insert_query = mysqli_prepare($dbconn, "INSERT INTO `game`(`game_name`, `game_desc`) VALUES (?,?)");
-    mysqli_stmt_bind_param($insert_query, "ss", $game_name, $game_desc);
+    $insert_query = mysqli_prepare($dbconn, "INSERT INTO `game`(`game_name`, `game_desc`, `game_cover`) VALUES (?,?,?)");
+    mysqli_stmt_bind_param($insert_query, "sss", $game_name, $game_desc, $file_name);
     mysqli_stmt_execute($insert_query);
     
     $affected_rows = mysqli_affected_rows($dbconn);
