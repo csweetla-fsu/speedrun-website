@@ -3,6 +3,7 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
+<?php require('fragments/session_control.php') ?>
 <html>
     <head>
         <?php require('fragments/head_content.php') ?>
@@ -16,9 +17,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
                 <!-- Login form-->
                 <div class="col-md-10 mx-auto col-lg-5">
-                    <form class="p-4 p-md-5 border rounded shadow bg-body-tertiary">
+                    <form class="p-4 p-md-5 border rounded shadow bg-body-tertiary"  action="actions/login_action.php" method="post">
                         <h1 class="display-6 lh-1 text-body-emphasis mb-3">Login</h1>
-
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com">
                             <label for="username">Username</label>
@@ -36,6 +36,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <hr class="my-4">
                         <small class="text-body-secondary">Don't have an account yet? <a href="register.php"> register instead </a></small>
                     </form>
+                    <!-- ERROR BOX -->
+                    <?php
+                    if (!empty($_SESSION["login_errors"])) {
+                        echo '<div class="alert alert-danger mt-3 pt-3 pb-2">';
+                        echo '<ul>';
+                        foreach ($_SESSION["login_errors"] as $login_err) {
+                            echo '<li>' . $login_err . '</li>';
+                        }
+                        echo '</ul>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
 
             </div>

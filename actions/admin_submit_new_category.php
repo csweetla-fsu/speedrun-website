@@ -2,9 +2,13 @@
 # why does it use path relative to file instead of project root wtf ????
 require("dbconnect.php");
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 
 # set when user pressed the submit button on the new category form
-if (isset($_POST["db_new_cat"])) {
+if (isset($_POST["db_new_cat"]) && $_SESSION['user_type'] == 'admin') {
     echo "Attempting to add a new category to the database... <br>";
     
     # for safety: check all required fields set

@@ -3,6 +3,8 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to edit this template
 -->
+<?php require('actions/dbconnect.php') ?>
+<?php require('fragments/session_control.php') ?>
 <html>
     <head>
         <?php require('fragments/head_content.php') ?>
@@ -25,11 +27,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <div class="album py-1 bg-light">
                 <div class="container mx-auto row row-cols-1 row-cols-lg-2 g-3">
 
-                    <?php include "fragments/game_card.php"; ?>
-                    <?php include "fragments/game_card.php"; ?>
-                    <?php include "fragments/game_card.php"; ?>
-                    <?php include "fragments/game_card.php"; ?>
+                    <?php
+                    $result = mysqli_query($dbconn, "SELECT * FROM `game`");
 
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $game_name = $row["game_name"];
+                        $game_desc = $row["game_desc"];
+                        $game_id = $row["game_id"];
+                        if (isset($row["game_cover"]) && !empty($row["game_cover"])) {
+                            $game_cover = $row["game_cover"];
+                        
+                        // default cover image... replace this with something else
+                        } else {
+                            $game_cover = "question_mark.png";
+                        }
+                        
+                        include "fragments/game_card.php";
+                    }
+                    ?>
 
                 </div>
             </div>
