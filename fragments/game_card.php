@@ -1,4 +1,5 @@
 <div class="col">
+    <a href="<?php echo "browse_game_categories.php?" . http_build_query(["game_id" => $game_id]) ?>" style="all: unset">
     <div class="card">
         <div class="row g-0">
             <div class="col-4 h-100 ratio" style="max-width:33%; min-height: 100%; --bs-aspect-ratio: 150%">
@@ -14,4 +15,5 @@
             </div>
         </div>
     </div>
+    </a>
 </div>

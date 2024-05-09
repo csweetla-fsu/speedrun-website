@@ -33,6 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     while ($row = mysqli_fetch_assoc($result)) {
                         $game_name = $row["game_name"];
                         $game_desc = $row["game_desc"];
+                        $game_id = $row["game_id"];
                         if (isset($row["game_cover"]) && !empty($row["game_cover"])) {
                             $game_cover = $row["game_cover"];
                         
